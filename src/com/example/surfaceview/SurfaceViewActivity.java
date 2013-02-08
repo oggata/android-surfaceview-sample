@@ -25,7 +25,7 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 	private Canvas canvas;
 	private Paint paint;
 	private boolean changeFlg = true;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-		
+
 	}
 
 	@Override
@@ -53,42 +53,42 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		
+
 	}
-	
-	public void drawTest () {
+
+	public void drawTest() {
 		canvas = sh.lockCanvas();
 
 		paint = new Paint();
-	    paint.setColor(Color.WHITE);
-	    paint.setAntiAlias(true);
-	    paint.setTextSize(10);
-	    paint.setTextAlign(Align.CENTER);
-	    canvas.drawColor(Color.BLACK);
-	    canvas.drawText("Hello, SurfaceView!", sv.getWidth()/2, sv.getHeight()/2, paint);
+		paint.setColor(Color.WHITE);
+		paint.setAntiAlias(true);
+		paint.setTextSize(10);
+		paint.setTextAlign(Align.CENTER);
+		canvas.drawColor(Color.BLACK);
+		canvas.drawText("Hello, SurfaceView!", sv.getWidth() / 2, sv.getHeight() / 2, paint);
 
-	    Resources res = getApplicationContext().getResources();
-	    Bitmap icon = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
-	    canvas.drawBitmap(icon, sv.getWidth()/2 - icon.getWidth()/2 , 0, paint);
-	    
-	    sh.unlockCanvasAndPost(canvas);
+		Resources res = getApplicationContext().getResources();
+		Bitmap icon = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
+		canvas.drawBitmap(icon, sv.getWidth() / 2 - icon.getWidth() / 2, 0, paint);
+
+		sh.unlockCanvasAndPost(canvas);
 	}
-	
-	public void backMain (View view) {
+
+	public void backMain(View view) {
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
-	
-	public void changeImage (View view) {
+
+	public void changeImage(View view) {
 		canvas = sh.lockCanvas();
 
 		paint = new Paint();
-	    paint.setColor(Color.WHITE);
-	    paint.setAntiAlias(true);
-	    paint.setTextSize(10);
-	    paint.setTextAlign(Align.CENTER);
-	    canvas.drawColor(Color.BLACK);
-	    canvas.drawText("Hello, SurfaceView!", sv.getWidth()/2, sv.getHeight()/2, paint);
+		paint.setColor(Color.WHITE);
+		paint.setAntiAlias(true);
+		paint.setTextSize(10);
+		paint.setTextAlign(Align.CENTER);
+		canvas.drawColor(Color.BLACK);
+		canvas.drawText("Hello, SurfaceView!", sv.getWidth() / 2, sv.getHeight() / 2, paint);
 
 		Resources res = getApplicationContext().getResources();
 		Bitmap icon;
@@ -99,9 +99,9 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 			icon = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
 			changeFlg = true;
 		}
-		canvas.drawBitmap(icon, sv.getWidth()/2 - icon.getWidth()/2, 0, paint);
+		canvas.drawBitmap(icon, sv.getWidth() / 2 - icon.getWidth() / 2, 0, paint);
 
 		sh.unlockCanvasAndPost(canvas);
 	}
-	
+
 }
