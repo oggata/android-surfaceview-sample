@@ -5,5 +5,9 @@
     <string name="menu_settings">Settings</string>
     <string name="start">Start</string>
     <string name="back">Back</string>
+    <string name="button">push</string>
+    <string name="todo">chenge_image</string>
+    <string name="chage_image">chage_image</string>
+    <string name="message">Push the image button then exchange images.</string>
 
 </resources>

@@ -22,6 +22,9 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 
 	private SurfaceHolder sh;
 	private SurfaceView sv;
+	private Canvas canvas;
+	private Paint paint;
+	private boolean changeFlg = true;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +57,15 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 	}
 	
 	public void drawTest () {
-	    Canvas canvas = sh.lockCanvas();
+		canvas = sh.lockCanvas();
 
-	    Paint paint = new Paint();
+		paint = new Paint();
 	    paint.setColor(Color.WHITE);
 	    paint.setAntiAlias(true);
 	    paint.setTextSize(10);
 	    paint.setTextAlign(Align.CENTER);
 	    canvas.drawColor(Color.BLACK);
-	    canvas.drawText("Hello, SurfaceView!", sv.getWidth()/2, sv.getHeight(), paint);
+	    canvas.drawText("Hello, SurfaceView!", sv.getWidth()/2, sv.getHeight()/2, paint);
 
 	    Resources res = getApplicationContext().getResources();
 	    Bitmap icon = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
@@ -74,6 +77,31 @@ public class SurfaceViewActivity extends Activity implements SurfaceHolder.Callb
 	public void backMain (View view) {
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
+	}
+	
+	public void changeImage (View view) {
+		canvas = sh.lockCanvas();
+
+		paint = new Paint();
+	    paint.setColor(Color.WHITE);
+	    paint.setAntiAlias(true);
+	    paint.setTextSize(10);
+	    paint.setTextAlign(Align.CENTER);
+	    canvas.drawColor(Color.BLACK);
+	    canvas.drawText("Hello, SurfaceView!", sv.getWidth()/2, sv.getHeight()/2, paint);
+
+		Resources res = getApplicationContext().getResources();
+		Bitmap icon;
+		if (changeFlg) {
+			icon = BitmapFactory.decodeResource(res, R.drawable.android);
+			changeFlg = false;
+		} else {
+			icon = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
+			changeFlg = true;
+		}
+		canvas.drawBitmap(icon, sv.getWidth()/2 - icon.getWidth()/2, 0, paint);
+
+		sh.unlockCanvasAndPost(canvas);
 	}
 	
 }
