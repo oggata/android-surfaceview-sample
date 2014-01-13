@@ -1,17 +1,17 @@
 android-surfaceview-sample
 =========
-SurfaceView���g���ĉ摜��`�悷�邽�߂�Android�̃T���v���\�[�X�R�[�h 
+SurfaceViewを使って画像を描画するためのAndroidのサンプルソースコード 
 
 Abstract
 --------
-�ȉ��̃\�[�X�R�[�h���܂܂�Ă��܂��B  
+以下のソースコードが含まれています。  
 + MainActivity  
-  �A�v�����N�����邽�߂̃N���X�ł�
-  SurfaceView���g����Activity���Ăяo���܂�
+  アプリを起動するためのクラスです
+  SurfaceViewを使ったActivityを呼び出します
 + SurfaceViewActivity  
-  �摜�ƕ������`�悵��SurfaceView��\������N���X�ł�
-  MainActivity�ɖ߂邽�߂̃{�^�����p�ӂ��Ă��܂�
+  画像と文字列を描画したSurfaceViewを表示するクラスです
+  MainActivityに戻るためのボタンも用意しています
 
 ### How to Use
-eclipse�Ŏg�p����ꍇ�͈ȉ��̎菇�ŃT���v���𓮍삷�邱�Ƃ��ł��܂�  
+* eclipseで使用する場合は以下の手順でサンプルを動作することができます  
 http://kakakikikeke.blogspot.com/2012/12/githubandroideclipse.html
